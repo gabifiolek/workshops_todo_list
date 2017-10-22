@@ -11,6 +11,9 @@
         <table>
           <tbody>
             <tr><td><%= task.title %></td><td rowspan='2' class='right-link'><%= link_to 'Remove/Done', task, method: :delete, data: { confirm: 'Sure that you dont have to do this task?' } %></td></tr>
+            <% unless task.deadline.blank? %>
+              <tr><td class='deadline'>Deadline: <%= task.deadline %></td></tr>
+            <% end %>
             <tr><td class='description'><%= task.description %></td></tr>
           </tbody>
         </table>
